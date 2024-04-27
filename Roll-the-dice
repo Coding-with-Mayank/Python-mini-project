@@ -1,0 +1,24 @@
+import random
+
+num_players = 4
+
+scores = [0] * num_players
+names = []
+
+for player in range(num_players):
+    name = input(f"Enter name for Player {player + 1}: ")
+    names.append(name)
+    
+    input(f"{name}, press Enter to roll the dice...")
+    dice_roll = random.randint(1, 6)
+    print(f"{name} rolled a {dice_roll}!")
+    
+    scores[player] += dice_roll
+
+for player, score in enumerate(scores, start=1):
+    print(f"{names[player-1]}'s final score: {score}")
+
+winner = scores.index(max(scores)) + 1
+print(f"{names[winner-1]} is the winner!")
+
+
